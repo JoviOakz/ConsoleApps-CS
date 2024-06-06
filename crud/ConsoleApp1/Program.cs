@@ -31,15 +31,20 @@ public class Program
 
                     Console.Write("\nCPF: ");
                     cpf = Console.ReadLine();
-                    if (!int.TryParse(cpf, out _))
+                    if (cpf.Length != 11)
                     {
+                        Console.WriteLine("CPF deve conter 11 digitos!");
+                        continue;
+                    }
+                    
+                    if (!cpf.All(char.IsDigit)) {
                         Console.WriteLine("CPF deve conter apenas numeros!");
                         continue;
                     }
 
                     Console.Write("\nIdade: ");
                     string x = Console.ReadLine();
-                    if (!int.TryParse(x, out _))
+                    if (!x.All(char.IsDigit))
                     {
                         Console.WriteLine("Idade deve conter apenas numeros!");
                         continue;
